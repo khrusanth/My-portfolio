@@ -1,0 +1,12 @@
+.decrypted-text {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--primary-color);
+  transition: all 0.8s ease;
+}
+
+.decrypted-text:hover {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}

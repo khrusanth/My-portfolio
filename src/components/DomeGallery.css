@@ -1,0 +1,89 @@
+.dome-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.dome-container {
+  width: 500px;
+  height: 500px;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dome {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+.dome-item {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid var(--primary-color);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.dome-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dome-item:hover {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  transform: scale(1.05);
+}
+
+.dome-item.active {
+  z-index: 10;
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
+}
+
+.dome-indicators {
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--primary-color);
+  transform: scale(1.3);
+}
+
+.indicator:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
+@media (max-width: 768px) {
+  .dome-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .dome-item {
+    width: 120px;
+    height: 120px;
+  }
+}
