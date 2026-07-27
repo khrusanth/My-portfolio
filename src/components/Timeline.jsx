@@ -2,31 +2,30 @@ import { motion } from 'framer-motion'
 import '../styles/Timeline.css'
 
 export default function Timeline() {
-
   const timelineEvents = [
     {
-      type: 'education',
       title: 'Bachelor of Computer Science & Engineering',
       institution: 'Saranathan College of Engineering',
-      date: '2021 - 2025 (Completed)',
-      details: 'CGPA: 8.2',
-      icon: '🎓',
+      date: '2021 - 2025',
+      details: 'Focused on software engineering, systems thinking, and practical product development.',
+      metric: 'CGPA 8.2',
+      icon: '◉',
     },
     {
-      type: 'education',
-      title: 'Higher Secondary (12th Standard)',
+      title: 'Higher Secondary',
       institution: 'Sri Vageesha Vidyasharam (CBSE)',
       date: '2019 - 2021',
-      details: '89% Score',
-      icon: '📚',
+      details: 'Built a strong foundation in analytical thinking, problem solving, and disciplined execution.',
+      metric: '89% Score',
+      icon: '◌',
     },
     {
-      type: 'education',
-      title: 'Secondary Education (10th Standard)',
+      title: 'Secondary Education',
       institution: 'Sri Vageesha Vidyasharam (CBSE)',
       date: '2017 - 2019',
-      details: '92% Score',
-      icon: '✏️',
+      details: 'Developed consistency, curiosity, and a strong work ethic early in academic life.',
+      metric: '92% Score',
+      icon: '◎',
     },
   ]
 
@@ -34,77 +33,64 @@ export default function Timeline() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.16 },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  }
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: 28 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.7 },
     },
   }
 
   return (
     <section id="timeline" className="timeline">
       <div className="section-container">
-        <motion.h2
-          className="section-title"
-          variants={titleVariants}
-          initial="hidden"
-          animate="visible"
+        <motion.div
+          className="timeline-intro"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="title-highlight">Education</span>
-        </motion.h2>
+          <p className="eyebrow">Background</p>
+          <h2>
+            Building a <span>strong technical foundation</span> with clear professional growth.
+          </h2>
+          <p>
+            My path has been shaped by disciplined study, hands-on projects, and a steady focus on
+            becoming a dependable engineer and builder.
+          </p>
+        </motion.div>
 
         <motion.div
-          className="timeline-container"
+          className="timeline-grid"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {timelineEvents.map((event, index) => (
-            <motion.div
-              key={index}
-              className={`timeline-event ${event.type}`}
+            <motion.article
+              key={event.title}
+              className="timeline-card"
               variants={itemVariants}
-              whileHover={{
-                x: 10,
-                boxShadow: '0 10px 30px rgba(0, 212, 255, 0.15)',
-              }}
+              whileHover={{ y: -8, scale: 1.01 }}
             >
-              <div className="timeline-marker">
-                <motion.div
-                  className="marker-icon"
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  {event.icon}
-                </motion.div>
+              <div className="timeline-card-head">
+                <span className="timeline-index">0{index + 1}</span>
+                <span className="timeline-icon">{event.icon}</span>
               </div>
-
-              <div className="timeline-content">
+              <div className="timeline-card-body">
                 <h3>{event.title}</h3>
-                <p className="institution">{event.institution}</p>
-                <p className="date">{event.date}</p>
-                <p className="details">{event.details}</p>
+                <p className="timeline-institution">{event.institution}</p>
+                <p className="timeline-date">{event.date}</p>
+                <p className="timeline-details">{event.details}</p>
+                <div className="timeline-metric">{event.metric}</div>
               </div>
-
-              <div className="timeline-line"></div>
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
       </div>

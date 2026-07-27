@@ -2,81 +2,77 @@ import { motion } from 'framer-motion'
 import '../styles/Achievements.css'
 
 export default function Achievements() {
-
   const achievements = [
     {
-      title: '1st Place - Engineering Projects Expo',
-      subtitle: 'Smart Toilet Management System',
+      title: '1st Place — Engineering Projects Expo',
+      subtitle: 'Awarded for the Smart Toilet Management System',
       organization: 'SHAR, ISRO',
       date: 'Oct 2023',
-      icon: '🏆',
-      color: '#FFD700',
+      icon: '★',
+      accent: 'Gold',
     },
     {
-      title: '1st Place - Mini-Project Competition',
-      subtitle: 'Saranathan College of Engineering',
-      organization: 'College Event',
+      title: '1st Place — Mini Project Competition',
+      subtitle: 'Recognized for innovation and implementation quality',
+      organization: 'Saranathan College of Engineering',
       date: 'Oct 2023',
-      icon: '🥇',
-      color: '#FFD700',
+      icon: '✦',
+      accent: 'Recognition',
     },
     {
-      title: '2nd Place - Tug-of-Code',
-      subtitle: 'Competitive Coding Event',
-      organization: 'QUBR-IT 2022, K. Ramakrishnan College',
+      title: '2nd Place — Tug-of-Code',
+      subtitle: 'Competitive programming recognition',
+      organization: 'K. Ramakrishnan College',
       date: '2022',
-      icon: '🥈',
-      color: '#C0C0C0',
+      icon: '◈',
+      accent: 'Performance',
     },
     {
-      title: '3rd Place - Debugging Challenge',
-      subtitle: 'Code Debugging Event',
-      organization: 'QUBR-IT 2022, K. Ramakrishnan College',
+      title: '3rd Place — Debugging Challenge',
+      subtitle: 'Problem-solving under pressure',
+      organization: 'K. Ramakrishnan College',
       date: '2022',
-      icon: '🥉',
-      color: '#CD7F32',
+      icon: '⬢',
+      accent: 'Precision',
     },
   ]
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-      },
+      transition: { staggerChildren: 0.12 },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.65 },
     },
   }
 
   return (
     <section id="achievements" className="achievements">
       <div className="section-container">
-        <motion.h2
-          className="section-title"
-          variants={titleVariants}
-          initial="hidden"
-          animate="visible"
+        <motion.div
+          className="achievements-intro"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="title-highlight">Achievements</span> & Awards
-        </motion.h2>
+          <p className="eyebrow">Recognition</p>
+          <h2>
+            Selected <span>high-impact wins</span> that reflect consistency and execution.
+          </h2>
+          <p>
+            Each accolade represents a moment where strong thinking, practical delivery, and
+            focused execution stood out.
+          </p>
+        </motion.div>
 
         <motion.div
           className="achievements-grid"
@@ -84,25 +80,24 @@ export default function Achievements() {
           initial="hidden"
           animate="visible"
         >
-          {achievements.map((achievement, index) => (
-            <motion.div
-              key={index}
+          {achievements.map((achievement) => (
+            <motion.article
+              key={achievement.title}
               className="achievement-card"
               variants={itemVariants}
-              whileHover={{
-                y: -8,
-                boxShadow: `0 20px 50px ${achievement.color}30`,
-                borderColor: achievement.color,
-              }}
+              whileHover={{ y: -8, scale: 1.01 }}
             >
-              <div className="achievement-icon">{achievement.icon}</div>
+              <div className="achievement-top">
+                <span className="achievement-icon">{achievement.icon}</span>
+                <span className="achievement-accent">{achievement.accent}</span>
+              </div>
               <div className="achievement-content">
                 <h3>{achievement.title}</h3>
                 <p className="achievement-subtitle">{achievement.subtitle}</p>
                 <p className="achievement-org">{achievement.organization}</p>
               </div>
               <div className="achievement-date">{achievement.date}</div>
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
       </div>

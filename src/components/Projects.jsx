@@ -1,91 +1,150 @@
 import { motion } from 'framer-motion'
-import { FiGithub, FiExternalLink } from 'react-icons/fi'
-import CardSwap, { Card } from './CardSwap'
-import GlareHover from './GlareHover'
+import { FiArrowUpRight, FiCpu, FiGithub, FiLayers, FiStar, FiCode } from 'react-icons/fi'
 import '../styles/Projects.css'
 
 export default function Projects() {
+  const featuredProject = {
+    title: 'Smart Toilet Management System',
+    description:
+      'An award-winning IoT solution that combines sensor monitoring, automation, and cloud visibility to improve sanitation operations in real time.',
+    award: '1st Place • SHAR, ISRO',
+    date: 'Apr 2023',
+    tags: ['IoT', 'Python', 'Hardware', 'Cloud'],
+  }
 
   const projects = [
-    {
-      id: 1,
-      title: 'Smart Toilet Management System',
-      description:
-        'Innovative IoT solution with automated cleaning and real-time cleanliness monitoring. Won 1st place at Engineering Projects Expo by SHAR, ISRO.',
-      tags: ['IoT', 'Python', 'Hardware', 'Cloud'],
-      image: 'https://via.placeholder.com/400x250/1a1a2e/00d4ff?text=Smart+Toilet',
-      award: '🏆 1st Place - ISRO SHAR',
-      date: 'Apr 2023',
-    },
     {
       id: 2,
       title: 'Gesture Controller for Computer',
       description:
-        'Advanced gesture-based control system leveraging Python and machine learning for intuitive hands-free computer interaction.',
+        'A hands-free interaction system powered by computer vision and machine learning for intuitive control.',
       tags: ['Python', 'ML', 'OpenCV', 'Mediapipe'],
-      image: 'https://via.placeholder.com/400x250/1a1a2e/00d4ff?text=Gesture+Control',
-      award: '⭐ Innovation Award',
       date: 'Jan 2023',
+      category: 'Computer Vision',
     },
     {
       id: 3,
       title: 'Weather Prediction Application',
       description:
-        'Real-time weather application with web scraping and user-friendly GUI providing accurate weather forecasting and alerts.',
+        'A polished forecasting interface with real-time data flows and an approachable, responsive experience.',
       tags: ['Python', 'Web Scraping', 'GUI', 'API'],
-      image: 'https://via.placeholder.com/400x250/1a1a2e/00d4ff?text=Weather+App',
       date: 'Nov 2022',
+      category: 'Data Experience',
     },
     {
       id: 4,
       title: 'Bank Account Management System',
       description:
-        'Secure, feature-rich banking system built with Java OOP principles including transactions, security, and account management.',
+        'A secure Java-based banking platform structured around robust OOP principles and dependable workflows.',
       tags: ['Java', 'OOP', 'Database', 'Security'],
-      image: 'https://via.placeholder.com/400x250/1a1a2e/00d4ff?text=Bank+System',
       date: 'Feb 2023',
+      category: 'Software Design',
     },
   ]
+
+  const highlights = ['Award-winning builds', 'Hands-on prototyping', 'Practical product thinking']
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.12,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 },
-    },
-  }
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.7 },
     },
   }
 
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects-section">
       <div className="section-container">
-        <motion.h2
-          className="section-title"
-          variants={titleVariants}
+        <motion.div
+          className="projects-intro"
+          variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          Featured <span className="title-highlight">Projects</span>
-        </motion.h2>
+          <motion.div className="projects-copy" variants={itemVariants}>
+            <p className="projects-eyebrow">Selected work</p>
+            <h2>
+              Projects built with <span>clarity, craft, and measurable impact.</span>
+            </h2>
+            <p>
+              From embedded systems to interactive tools, each build reflects a balance of research,
+              engineering discipline, and thoughtful UX.
+            </p>
+          </motion.div>
+
+          <motion.div className="projects-pill-group" variants={itemVariants}>
+            {highlights.map((highlight) => (
+              <span key={highlight} className="pill-tag">
+                <FiStar /> {highlight}
+              </span>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        <motion.article
+          className="featured-project"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="featured-copy">
+            <p className="featured-label">Featured project</p>
+            <h3>{featuredProject.title}</h3>
+            <p className="featured-description">{featuredProject.description}</p>
+            <div className="featured-meta">
+              <span>{featuredProject.date}</span>
+              <span>{featuredProject.award}</span>
+            </div>
+            <div className="featured-tags">
+              {featuredProject.tags.map((tag) => (
+                <span key={tag} className="feature-tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="featured-actions">
+              <a href="https://github.com/khrusanth" target="_blank" rel="noreferrer" className="project-link">
+                <FiGithub /> GitHub
+              </a>
+              <a href="https://khrusanth.github.io" target="_blank" rel="noreferrer" className="project-link secondary">
+                <FiArrowUpRight /> Live view
+              </a>
+            </div>
+          </div>
+
+          <div className="featured-visual" aria-hidden="true">
+            <div className="visual-card">
+              <div className="visual-top">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div className="visual-body">
+                <div className="visual-panel primary-panel">
+                  <FiCpu />
+                  <h4>Live sensing</h4>
+                  <p>Real-time monitoring and responsive automation</p>
+                </div>
+                <div className="visual-panel">
+                  <FiLayers />
+                  <h4>Reliable controls</h4>
+                  <p>Clean handoff between hardware and software</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.article>
 
         <motion.div
           className="projects-grid"
@@ -94,70 +153,35 @@ export default function Projects() {
           animate="visible"
         >
           {projects.map((project) => (
-            <motion.div
+            <motion.article
               key={project.id}
               className="project-card"
               variants={itemVariants}
-              whileHover={{
-                y: -15,
-                boxShadow: '0 30px 50px rgba(0, 212, 255, 0.2)',
-              }}
+              whileHover={{ y: -10, scale: 1.01 }}
             >
-              <div className="project-image-container">
-                <img src={project.image} alt={project.title} className="project-image" />
-                <div className="project-overlay"></div>
+              <div className="card-accent"></div>
+              <div className="project-topline">
+                <span className="project-category">{project.category}</span>
+                <span className="project-date">{project.date}</span>
               </div>
-
-              <div className="project-content">
-                <div className="project-header">
-                  <h3>{project.title}</h3>
-                  {project.award && (
-                    <motion.span className="project-award" whileHover={{ scale: 1.1 }}>
-                      {project.award}
-                    </motion.span>
-                  )}
-                </div>
-
-                <p className="project-description">{project.description}</p>
-
-                <div className="project-date">{project.date}</div>
-
-                <motion.div
-                  className="project-tags"
-                  variants={containerVariants}
-                >
-                  {project.tags.map((tag, index) => (
-                    <motion.span
-                      key={index}
-                      className="project-tag"
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      {tag}
-                    </motion.span>
-                  ))}
-                </motion.div>
-
-                <div className="project-links">
-                  <motion.a
-                    href="#"
-                    className="project-link"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FiGithub /> GitHub
-                  </motion.a>
-                  <motion.a
-                    href="#"
-                    className="project-link"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FiExternalLink /> View Project
-                  </motion.a>
-                </div>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="project-tags">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="project-tag">
+                    {tag}
+                  </span>
+                ))}
               </div>
-            </motion.div>
+              <div className="project-links">
+                <a href="https://github.com/khrusanth" target="_blank" rel="noreferrer" className="project-link simple">
+                  <FiCode /> Code
+                </a>
+                <a href="https://khrusanth.github.io" target="_blank" rel="noreferrer" className="project-link simple secondary">
+                  <FiArrowUpRight /> Explore
+                </a>
+              </div>
+            </motion.article>
           ))}
         </motion.div>
       </div>

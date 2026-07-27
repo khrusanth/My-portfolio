@@ -4,21 +4,25 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: dark;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0d0d;
+  background: #06070b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4af37;
-  border-radius: 5px;
+  background: linear-gradient(180deg, #d4af37, #4dc7ff);
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a68d28;
+  background: linear-gradient(180deg, #f0c967, #7dd3fc);
 }
 
 body {
@@ -32,6 +36,6 @@ body {
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 

@@ -2,9 +2,9 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(13, 13, 13, 0.98);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
+  background: rgba(6, 8, 14, 0.75);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--panel-border);
   z-index: 1000;
   padding: 0.8rem 0;
 }
@@ -19,59 +19,88 @@
 }
 
 .nav-logo {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--primary-color);
   cursor: pointer;
-  letter-spacing: 1px;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.08);
 }
 
 .logo-text {
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 0.22em;
 }
 
 .nav-menu {
   display: flex;
-  gap: 2rem;
+  gap: 1.4rem;
   align-items: center;
   list-style: none;
 }
 
 .nav-link {
+  position: relative;
   color: var(--text-secondary);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: color 0.2s ease;
   cursor: pointer;
+  padding: 0.2rem 0;
 }
 
-.nav-link:hover {
-  color: var(--primary-color);
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .hamburger {
   display: none;
-  background: none;
-  border: none;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
   color: var(--text-primary);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  padding: 0.45rem;
 }
 
 @media (max-width: 768px) {
   .nav-menu {
     position: absolute;
-    top: 60px;
+    top: 62px;
     left: 0;
     width: 100%;
-    background: rgba(15, 15, 30, 0.98);
-    backdrop-filter: blur(10px);
+    background: rgba(6, 8, 14, 0.95);
+    backdrop-filter: blur(20px);
     flex-direction: column;
     gap: 0;
     padding: 1rem 0;
-    border-top: 1px solid var(--border-color);
-    transform: translateY(-100%);
+    border-top: 1px solid var(--panel-border);
+    transform: translateY(-110%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -86,7 +115,7 @@
   .nav-link {
     padding: 1rem 2rem;
     display: block;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--panel-border);
   }
 
   .hamburger {
