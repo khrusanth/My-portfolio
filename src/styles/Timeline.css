@@ -8,7 +8,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--section-glow);
+  background: radial-gradient(circle at top right, rgba(77, 199, 255, 0.12), transparent 28%);
   pointer-events: none;
 }
 
@@ -30,8 +30,8 @@
   margin-bottom: 0.7rem;
   color: var(--primary-color);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  font-size: 0.74rem;
   font-weight: 700;
 }
 
@@ -54,82 +54,130 @@
 
 .timeline-grid {
   display: grid;
-  gap: 1.1rem;
+  gap: 1rem;
 }
 
 .timeline-card {
+  position: relative;
   display: grid;
-  grid-template-columns: 90px 1fr;
+  grid-template-columns: 118px 1fr;
   gap: 1rem;
-  padding: 1.2rem;
+  padding: 1.15rem 1.2rem;
   border-radius: 1.2rem;
-  border: 1px solid var(--panel-border);
-  background: var(--panel-bg);
-  box-shadow: var(--panel-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+.timeline-card:hover {
+  border-color: rgba(77, 199, 255, 0.25);
+  transform: translateY(-6px);
+}
+
+.timeline-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
 }
 
 .timeline-card-head {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding-left: 0.25rem;
+}
+
+.timeline-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .timeline-index {
   color: var(--primary-color);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.2em;
 }
 
 .timeline-icon {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.24), rgba(77, 199, 255, 0.2));
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(77, 199, 255, 0.15));
   color: var(--primary-color);
   font-size: 1rem;
+  border: 1px solid rgba(77, 199, 255, 0.2);
+}
+
+.timeline-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.timeline-chip {
+  color: var(--secondary-color);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+.timeline-date {
+  color: var(--primary-color);
+  font-size: 0.76rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+.timeline-card-body {
+  padding-left: 0.25rem;
 }
 
 .timeline-card-body h3 {
   font-size: 1.05rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
   color: var(--text-primary);
+  line-height: 1.35;
 }
 
 .timeline-institution {
   color: var(--secondary-color);
   font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.timeline-date {
-  color: var(--primary-color);
-  font-size: 0.85rem;
-  margin-bottom: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  margin-bottom: 0.4rem;
+  font-size: 0.94rem;
 }
 
 .timeline-details {
   color: var(--text-secondary);
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 0.7rem;
 }
 
 .timeline-metric {
   display: inline-flex;
-  padding: 0.45rem 0.7rem;
+  padding: 0.42rem 0.7rem;
   border-radius: 999px;
   background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.25);
   color: var(--text-primary);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -140,10 +188,20 @@
   .timeline-card {
     grid-template-columns: 1fr;
     gap: 0.8rem;
+    padding: 1rem;
   }
 
   .timeline-card-head {
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .timeline-pill {
+    flex-direction: row;
+  }
+
+  .timeline-meta {
+    align-items: flex-end;
   }
 }

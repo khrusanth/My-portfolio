@@ -30,13 +30,13 @@ export default function About() {
 
           <div className="about-text">
             <p>
-              I’m a developer who enjoys turning ideas into thoughtful, high-quality experiences.
-              My work blends product thinking, frontend craftsmanship, and hands-on problem solving
-              to create interfaces that feel both elegant and useful.
+              I build practical web experiences with a focus on clarity, reliability, and maintainable implementation.
+              My work combines product thinking, frontend craftsmanship, and strong engineering judgment to create interfaces
+              that are both usable and well structured.
             </p>
             <p>
-              Whether I’m designing a system flow or building a prototype, I focus on clarity,
-              reliability, and making the final experience feel effortless for the user.
+              Whether I am shaping a user flow or developing a feature end to end, I focus on clean execution,
+              thoughtful decision making, and a dependable final experience.
             </p>
           </div>
         </div>

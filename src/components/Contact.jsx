@@ -12,7 +12,7 @@ export default function Contact() {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
   }
 
   const itemVariants = {
@@ -32,24 +32,26 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="eyebrow">Let’s connect</p>
+          <p className="eyebrow">Contact</p>
           <h2>
-            Open to <span>high-impact opportunities</span> and thoughtful collaborations.
+            Open to <span>engineering roles</span> focused on quality, product delivery, and long-term impact.
           </h2>
           <p>
-            If you are building something ambitious, I would love to be part of the conversation.
+            If you are building something ambitious, I would be glad to connect and discuss the right fit.
           </p>
         </motion.div>
 
         <motion.div className="contact-card" variants={containerVariants} initial="hidden" animate="visible">
           <motion.div className="contact-info" variants={itemVariants}>
-            <h3>Available for product-minded engineering roles</h3>
-            <p>
-              I enjoy working with teams that value clarity, craft, and strong execution from idea to delivery.
-            </p>
+            <div className="contact-panel-heading">
+              <span className="contact-badge">Available for product-focused engineering roles</span>
+              <p>
+                I work well with teams that value clarity, precision, and dependable execution from concept to delivery.
+              </p>
+            </div>
 
             <div className="contact-details">
-              <motion.a href="mailto:khrusanthsj@gmail.com" className="detail-item" whileHover={{ x: 6 }}>
+              <motion.a href="mailto:khrusanthsj@gmail.com" className="detail-item" whileHover={{ x: 4 }}>
                 <FiMail />
                 <div>
                   <span>Email</span>
@@ -57,7 +59,7 @@ export default function Contact() {
                 </div>
               </motion.a>
 
-              <motion.a href="tel:+919443830984" className="detail-item" whileHover={{ x: 6 }}>
+              <motion.a href="tel:+919443830984" className="detail-item" whileHover={{ x: 4 }}>
                 <FiPhone />
                 <div>
                   <span>Phone</span>
@@ -65,7 +67,7 @@ export default function Contact() {
                 </div>
               </motion.a>
 
-              <motion.a href="https://linkedin.com/in/khrusanth-s" target="_blank" rel="noopener noreferrer" className="detail-item" whileHover={{ x: 6 }}>
+              <motion.a href="https://linkedin.com/in/khrusanth-s" target="_blank" rel="noopener noreferrer" className="detail-item" whileHover={{ x: 4 }}>
                 <FiLinkedin />
                 <div>
                   <span>LinkedIn</span>
@@ -85,11 +87,11 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="social-link"
                     variants={itemVariants}
-                    whileHover={{ scale: 1.12, boxShadow: `0 0 20px ${social.color}` }}
+                    whileHover={{ scale: 1.1, boxShadow: `0 0 20px ${social.color}` }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.name}
                   >
-                    <Icon size={20} />
+                    <Icon size={18} />
                   </motion.a>
                 )
               })}

@@ -48,17 +48,17 @@ export default function Hero() {
             className="hero-title"
             variants={itemVariants}
           >
-            <span className="welcome">Hey, I'm</span>
-            <ShinyText text="Khrusanth S" className="name-highlight" duration={4} />
+            <span className="welcome">Khrusanth S</span>
+            <ShinyText text="Software Engineer" className="name-highlight" duration={4} />
           </motion.h1>
 
           <motion.p className="hero-subtitle" variants={itemVariants}>
-            <DecryptedText text="Creative Developer | Problem Solver | Tech Enthusiast" speed={30} />
+            <DecryptedText text="Frontend Developer | React | Python | Product-Focused Engineering" speed={30} />
           </motion.p>
 
           <motion.p className="hero-description" variants={itemVariants}>
-            I craft beautiful, functional digital experiences with React, Python, and modern web technologies.
-            Passionate about turning ideas into reality and solving complex problems.
+            I build polished web experiences with React, Python, and modern frontend tooling, with a focus on clarity,
+            reliability, and dependable product outcomes.
           </motion.p>
 
           <motion.div
@@ -71,7 +71,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View My Work
+                View Projects
               </motion.button>
             </a>
 
@@ -81,7 +81,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get In Touch
+              Contact Me
             </motion.a>
           </motion.div>
         </motion.div>

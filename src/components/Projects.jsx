@@ -42,7 +42,7 @@ export default function Projects() {
     },
   ]
 
-  const highlights = ['Award-winning builds', 'Hands-on prototyping', 'Practical product thinking']
+  const highlights = ['Product-focused engineering', 'Reliable implementation', 'Practical problem solving']
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -75,11 +75,11 @@ export default function Projects() {
           <motion.div className="projects-copy" variants={itemVariants}>
             <p className="projects-eyebrow">Selected work</p>
             <h2>
-              Projects built with <span>clarity, craft, and measurable impact.</span>
+              Projects shaped by <span>clarity, engineering discipline, and measurable impact.</span>
             </h2>
             <p>
-              From embedded systems to interactive tools, each build reflects a balance of research,
-              engineering discipline, and thoughtful UX.
+              Across embedded systems, data-driven tools, and interactive interfaces, each project reflects strong execution,
+              practical problem solving, and careful product thinking.
             </p>
           </motion.div>
 
